@@ -1,0 +1,224 @@
+body {
+	background: linear-gradient(120deg, #4ee6cf, #f0a254);
+	color: #0b1f2d;
+	font: 100% "Trebuchet MS", Arial, sans-serif;
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+}
+
+.hud {
+	position: fixed;
+	top: 15px;
+	left: 15px;
+	background: rgba(255, 255, 255, 0.85);
+	padding: 12px 14px;
+	border-radius: 10px;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+	border: 2px solid #0b1f2d;
+	z-index: 2;
+}
+
+.hud h1 {
+	margin: 0;
+	font-size: 24px;
+	letter-spacing: 1px;
+}
+
+.tiny {
+	margin: 4px 0 10px;
+	font-size: 13px;
+}
+
+.score-box {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+#reset-btn {
+	background: #0b1f2d;
+	color: #fff;
+	border: none;
+	padding: 6px 10px;
+	border-radius: 6px;
+	cursor: pointer;
+}
+
+#reset-btn:hover {
+	background: #123752;
+}
+
+#background-wrap {
+    bottom: 0;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 0;
+}
+
+
+@keyframes animateBubble {
+    0% {
+        margin-top: 1000px;
+    }
+    100% {
+        margin-top: -100%;
+    }
+}
+
+@keyframes sideWays { 
+    0% { 
+        margin-left:0px;
+    }
+    100% { 
+        margin-left:50px;
+    }
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    80% {
+        transform: scale(1.4);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(0.1);
+        opacity: 0;
+    }
+}
+
+/* ANIMATIONS */
+
+.x1 {
+	animation: animateBubble 25s linear infinite, sideWays 2s ease-in-out infinite alternate;
+	
+	left: -5%;
+	top: 5%;
+	
+	transform: scale(0.6);
+}
+
+.x2 {
+	animation: animateBubble 20s linear infinite, sideWays 4s ease-in-out infinite alternate;
+	
+	left: 5%;
+	top: 80%;
+	
+	transform: scale(0.4);
+}
+
+.x3 {
+	animation: animateBubble 28s linear infinite, sideWays 2s ease-in-out infinite alternate;
+	
+	left: 10%;
+	top: 40%;
+	
+	transform: scale(0.7);
+}
+
+.x4 {
+	animation: animateBubble 22s linear infinite, sideWays 3s ease-in-out infinite alternate;
+	
+	left: 20%;
+	top: 0;
+	
+	transform: scale(0.3);
+}
+
+.x5 {
+	animation: animateBubble 29s linear infinite, sideWays 4s ease-in-out infinite alternate;
+	
+	left: 30%;
+	top: 50%;
+	
+	transform: scale(0.5);
+}
+
+.x6 {
+	animation: animateBubble 21s linear infinite, sideWays 2s ease-in-out infinite alternate;
+	
+	left: 50%;
+	top: 0;
+	
+	transform: scale(0.8);
+}
+
+.x7 {
+	animation: animateBubble 20s linear infinite, sideWays 2s ease-in-out infinite alternate;
+	
+	left: 65%;
+	top: 70%;
+	
+	transform: scale(0.4);
+}
+
+.x8 {
+	animation: animateBubble 22s linear infinite, sideWays 3s ease-in-out infinite alternate;
+	
+	left: 80%;
+	top: 10%;
+	
+	transform: scale(0.3);
+}
+
+.x9 {
+	animation: animateBubble 29s linear infinite, sideWays 4s ease-in-out infinite alternate;
+	
+	left: 90%;
+	top: 50%;
+	
+	transform: scale(0.6);
+}
+
+.x10 {
+	animation: animateBubble 26s linear infinite, sideWays 2s ease-in-out infinite alternate;
+	
+	left: 80%;
+	top: 80%;
+	
+	transform: scale(0.3);
+}
+
+.bubble {
+	border-radius: 50%;
+	
+	box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2), inset 0px 10px 30px 5px rgba(255, 255, 255, 1);
+	
+    height: 200px;
+	position: absolute;
+	width: 200px;
+	cursor: pointer;
+	transition: transform 0.2s, opacity 0.2s;
+	z-index: 1;
+}
+
+.bubble:after {
+    background: radial-gradient(ellipse at center,  rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 70%); /* W3C */
+
+	border-radius: 50%;
+	
+	box-shadow: inset 0 20px 30px rgba(255, 255, 255, 0.3);
+	
+	content: "";
+    height: 180px;
+	left: 10px;
+	position: absolute;
+	width: 180px;
+}
+
+.bubble:hover {
+	transform: scale(1.05);
+}
+
+.bubble.pop {
+	animation: pop 0.35s ease-out forwards;
+	box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
